@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Valid
 public class MCPFileRowDTO {
 
+	// Class to map the info of the file
 
     private long id;
     

@@ -15,25 +15,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="kpis")
 public class Kpis {
-
-//    public Kpis(String fileName, Integer numRows, Integer numCalls, Integer numMessages, long duration,
-//    		String diffOriginCC, String diffDestinationCC) {
-//		super();
-//		this.fileName = fileName;
-//		this.numRows = numRows;
-//		this.numCalls = numCalls;
-//		this.numMessages = numMessages;
-//		this.duration = duration;
-//		this.diffOriginCC = diffOriginCC;
-//		this.diffDestinationCC = diffDestinationCC;
-//	}
-
-//	@Id
-//    @GeneratedValue(strategy=GenerationType.AUTO)
-//    private long id;
     
 	@Id
-//    @Column(name = "file_name", nullable = false)
     private String fileName;
     
     @Column(name = "num_rows", nullable = false)

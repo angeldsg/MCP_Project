@@ -24,10 +24,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @RestController
-@RequestMapping("${platform.api.baseUrl}" + "${platform.api.version}" + "api")
+@RequestMapping("${platform.api.baseUrl}" + "${platform.api.version}")
 @Api("Api REST for Mobile Communication Platform services management")
 @Slf4j
-@CrossOrigin // needed to allow clients to connect 
+@CrossOrigin // needed to allow clients to access to resources located in a different server 
 public class PlatformController {
 
 	@Autowired
@@ -52,7 +52,7 @@ public class PlatformController {
         	metricsDTO = service.getMetrics(dateRequest);
 
         } catch (Exception e) {
-            code = HttpStatus.INTERNAL_SERVER_ERROR;
+            code = HttpStatus.NOT_FOUND;
         }
 
         log.debug("Get Metrics End ");
@@ -78,7 +78,7 @@ public class PlatformController {
         	kpisDTO = service.getServiceKpis();
 
         } catch (Exception e) {
-            code = HttpStatus.INTERNAL_SERVER_ERROR;
+            code = HttpStatus.NOT_FOUND;
         }
 
         log.debug("Get Service Kpis End ");

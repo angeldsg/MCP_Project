@@ -59,7 +59,8 @@ public class PlatformServiceImpl implements PlatformService{
 		}
 		
 		
-		// Connect to remote files repository
+		// Connect to remote files repository. We could implement some retries policy on
+		// this point to not to get waiting too much.
 		try {
 			URL remoteUrl = new URL("https://raw.githubusercontent.com/vas-test/test1/master/logs/MCP_" +inputStringDate+".json");
 			
@@ -142,7 +143,7 @@ public class PlatformServiceImpl implements PlatformService{
 				metricsDTO = new MetricsDTO(fileName, missingFieldRows, calculationsDTO.getBlankContentMessages(), errorFieldRows,
 						grouppedCalls, okKoRatio, avgGrouppedCallDuration, wordOccurrenceRanking);
 
-				// Calculate JSON processing duration (in miliseconds)
+				// Calculate JSON processing duration (in milliseconds)
 		        duration= Duration.between(start, end).getNano()/1000000;
 		        
 		        // Generate the arrays of different Country Codes
@@ -219,7 +220,7 @@ public class PlatformServiceImpl implements PlatformService{
 	
 	/*
 	 * MSISDN country code validations.
-	 * We consider all the numbers are spanish ones, and getting the country code from the two first digits.
+	 * We consider all the numbers are Spanish ones, and getting the country code from the two first digits.
 	 */
 	private void countryCodeValidations(MCPFileRowDTO mcpFileRowDTO, CalculationsDTO calculationsDTO,
 			Set<String> diffOriginCC, Set<String> diffDestinationCC, Map<String, Integer> grouppedCalls,
